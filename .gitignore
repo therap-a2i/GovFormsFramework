@@ -1,0 +1,9 @@
+{arch}
+.*
+!.gitignore
++*
+*.ipr
+*.iws
+*.iml
+build
+dist

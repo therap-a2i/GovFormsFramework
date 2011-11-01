@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="GovForms" basedir="." default="usage">
+
+    <description>BD Government Forms</description>
+
+    <property name="src.dir" value="${basedir}/src"/>
+    <property name="web.dir" value="${basedir}/web"/>
+    <property name="lib.dir" value="${basedir}/lib"/>
+
+    <property name="build.dir" value="${basedir}/build"/>
+    <property name="classes.dir" value="${build.dir}/WEB-INF/classes"/>
+    <property name="dist.dir" value="${basedir}/dist"/>
+
+    <property file="build.properties"/>
+
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="*.jar" />
+        <fileset dir="${tomcat.lib}" includes="*.jar" />
+    </path>
+
+
+    <target name="usage">
+        <echo message=""/>
+        <echo message="${ant.project.name} build file"/>
+        <echo message="----------------------------"/>
+        <echo message=""/>
+        <echo message="Available targets are:"/>
+        <echo message=""/>
+        <echo message="clean          --> Clean build and dist directories"/>
+        <echo message="build          --> Build the application"/>
+        <echo message="war            --> Build WAR file for deployment"/>
+        <echo message=""/>
+        <echo message="deploy         --> Deploy application as WAR in Tomcat"/>
+        <echo message="undeploy       --> Undeploy application from Tomcat"/>
+        <echo message="redeploy       --> Redeploy application in Tomcat"/>
+        <echo message=""/>
+        <echo message="build-deploy   --> Build and Deploy application in Tomcat"/>
+        <echo message="build-redeploy --> Build and Redeploy application in Tomcat"/>
+        <echo message=""/>
+        <echo message="startTomcat    --> Start Tomcat server"/>
+        <echo message="stopTomcat     --> Stop Tomcat server"/>
+        <echo message="restartTomcat  --> Restart Tomcat server"/>
+        <echo message=""/>
+    </target>
+
+
+    <target name="init">
+        <mkdir dir="${classes.dir}"/>
+    </target>
+
+    <target name="resources" depends="init" description="prepares deployment resources">
+        <copy todir="${build.dir}">
+            <fileset dir="${web.dir}"/>
+        </copy>
+
+        <mkdir dir="${build.dir}/WEB-INF/lib"/>
+
+        <copy todir="${build.dir}/WEB-INF/lib">
+            <fileset dir="${lib.dir}" includes="*.jar" />
+        </copy>
+    </target>
+
+    <target name="compile" depends="init">
+        <javac destdir="${classes.dir}"
+               classpathref="classpath"
+               srcdir="${src.dir}"
+               includeantruntime="false"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="build" depends="resources, compile"/>
+
+    <target name="startTomcat">
+        <exec executable="${tomcat.home}/bin/catalina.sh" osfamily="unix">
+            <arg value="start"/>
+        </exec>
+        <exec executable="cmd" osfamily="winnt">
+            <arg value="/C"/>
+            <arg value="${tomcat.home}/bin/catalina.bat"/>
+            <arg value="start"/>
+            <env key="CATALINA_HOME" value="${tomcat.home}"/>
+        </exec>
+    </target>
+
+    <target name="stopTomcat">
+        <exec executable="${tomcat.home}/bin/catalina.sh" osfamily="unix">
+            <arg value="stop"/>
+        </exec>
+        <exec executable="cmd" osfamily="winnt">
+            <arg value="/C"/>
+            <arg value="${tomcat.home}/bin/catalina.bat"/>
+            <arg value="stop"/>
+            <env key="CATALINA_HOME" value="${tomcat.home}"/>
+        </exec>
+    </target>
+
+    <target name="restartTomcat">
+            <antcall target="stopTomcat"/>
+            <sleep seconds="2"/>
+            <antcall target="startTomcat"/>
+    </target>
+
+    <path id="catalina-ant-classpath">
+        <fileset dir="${tomcat.lib}">
+            <include name="catalina-ant.jar"/>
+        </fileset>
+    </path>
+
+
+    <taskdef name="deploy" classname="org.apache.catalina.ant.DeployTask">
+        <classpath refid="catalina-ant-classpath"/>
+    </taskdef>
+
+    <taskdef name="undeploy" classname="org.apache.catalina.ant.UndeployTask">
+        <classpath refid="catalina-ant-classpath"/>
+    </taskdef>
+
+
+    <target name="remove-deployment">
+        <delete file="${deploy.path}/${context.path}.war"/>
+        <delete dir="${deploy.path}/${context.path}"/>
+    </target>
+
+    <target name="undeploy" depends="remove-deployment" description="Undeploy application">
+        <undeploy url="${tomcat.manager.url}" username="${tomcat.manager.username}"
+                  password="${tomcat.manager.password}"
+                  path="/${context.path}"/>
+    </target>
+
+    <target name="war" depends="clean, build" description="Build WAR file for deployment">
+        <mkdir dir="${dist.dir}"/>
+        <war destfile="${dist.dir}/${context.path}.war" webxml="${build.dir}/WEB-INF/web.xml">
+            <fileset dir="${build.dir}"/>
+        </war>
+    </target>
+    
+    <target name="copy-war" description="Copy WAR to the deployment path">
+        <copy todir="${deploy.path}" file="${dist.dir}/${context.path}.war"/>
+    </target>
+
+    <target name="deploy" depends="copy-war">
+        <deploy url="${tomcat.manager.url}" username="${tomcat.manager.username}" password="${tomcat.manager.password}"
+                path="/${context.path}" war="file:${dist.dir}/${context.path}.war"/>
+    </target>
+
+    <target name="redeploy" depends="undeploy, deploy" />
+    
+    <target name="build-deploy" depends="war, deploy"/>
+
+    <target name="build-redeploy" depends="war, redeploy"/>
+
+</project>

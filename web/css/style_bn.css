@@ -1,0 +1,466 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: SolaimanLipi, NikoshBAN, Nikosh, Georgia;
+    font-size: 15px;
+    background: #FFFFFF;
+}
+
+#wrapper {
+    overflow: auto;
+    float: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#wrapper_inner {
+    overflow: auto;
+    margin: 0px 0 20px 0px;
+    padding: 0 0 0 0;
+    width: 100%;
+    background-color: inherit;
+}
+
+#top {
+    margin: 8px 20px 0px 5px;
+    padding: 0 0 0 0;
+    width: 98%;
+    height: 92px;
+    background: transparent url("../img/bg.gif") repeat-x top left;
+    font-size: 14px;
+    color: #CCCCCC;
+}
+
+#titlebar {
+    text-align: left;
+    margin: 5px 5px 0px 5px;
+    padding: 5px 0 0 0;
+    width: 98%;
+    height: 22px;
+    background-color: transparent;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+    border: 1px dotted red;
+}
+
+#navbar {
+    text-align: right;
+    margin: 5px 5px 0px 5px;
+    padding: 0 0 0 0;
+    width: 98%;
+    height: 30px;
+    background-color: transparent;
+    font-size: 14px;
+    color: #black;
+    border: 1px dotted red;
+}
+
+#navbar a {
+    color: green;
+}
+
+#outer {
+    width: 70%;
+    overflow: auto;
+    float: left;
+    margin: 0 0 20px 50px;
+    border: 1px solid black;
+}
+
+#middlebar {
+    margin: 5px 2px 0px 4px;
+    padding: 0 0 0 0;
+    width: 98%;
+    background-color: transparent;
+    font-size: 14px;
+    color: #000000;
+    border: 1px dotted #cccccc;
+}
+
+#middlebar a {
+    color: #000000;
+    padding: 3px 0 3px 0;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#ninefive_panel_right {
+    overflow: auto;
+    float: right;
+    margin: 20px 20px 2px 2px;
+    padding: 3px;
+    width: 100px;
+    background-color: #F2F5F7;
+    font-size: 15px;
+    font-weight: normal;
+    color: #000000;
+    border: 1px solid #D0E4FD;
+}
+
+#ninefive_panel, #ninefive_panel3 {
+    float: right;
+    margin: 20px 20px 20px 20px;
+    padding: 3px;
+    width: 70%;
+    background-color: #F2F5F7;
+    font-size: 14px;
+    font-weight: normal;
+    color: #000000;
+    border: 1px solid #D0E4FD;
+}
+
+#ninefive_panel {
+    margin: 0px 0px 0px 0px;
+    width: 70%;
+}
+
+#ninefive_panel2 {
+    border: 1px solid #aaa;
+}
+
+#ninefive_panel a {
+    color: green;
+    text-decoration: none;
+}
+
+#ninefive_panel h1 {
+    width: 100%;
+    color: green;
+    font-size: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #D0E4FD;
+}
+
+#right_panel_art {
+    overflow: auto;
+    float: left;
+    margin: 5px 2px 0px 2px;
+    padding: 0 0 0 0;
+    width: 98%;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: normal;
+    color: #000000;
+}
+
+#right_panel_art a {
+    color: green;
+    text-decoration: none;
+}
+
+#middle_content_all {
+    width: 97%;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+#left_panel {
+    overflow: auto;
+    float: right;
+    margin: 20px 20px 2px 2px;
+    padding: 0 0 0 0;
+    width: 200px;
+    background-color: #F2F5F7;
+    font-size: 14px;
+    font-weight: normal;
+    color: #000000;
+    border: 1px solid #D0E4FD;
+}
+
+#middle_content_all p {
+    font-size: 14px;
+}
+
+#middle_content_all ul li {
+    margin-left: 15px;
+}
+
+#middle_content_all ol li {
+    margin-left: 20px;
+}
+
+#middle_content_sp {
+    width: 97%;
+    float: left;
+    margin-top: 10px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+#middle_content_sp p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#middle_content_sp ul li {
+    margin-left: 15px;
+}
+
+#middle_content_sp ol li {
+    margin-left: 20px;
+}
+
+.pagi {
+    font-family: SolaimanLipi, NikoshBAN, Nikosh, Georgia;
+    font-size: 11px;
+}
+
+#frqForm {
+    width: 98%;
+    overflow: auto;
+    float: left;
+    overflow: auto;
+    margin: 20px 20px 2px 2px;
+    padding: 3px;
+    background-color: #F2F5F7;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+    border: 1px solid #D0E4FD;
+    display: none;
+}
+
+#frqForm p {
+    font-size: 18px;
+    background-color: #278554;
+    color: #FFFFFF;
+    border-bottom: 1px solid #C60029;
+    margin-bottom: 10px;
+}
+
+#sidebar {
+    width: 17%;
+    float: right;
+    /*overflow:auto; */
+    margin: 20px 20px 2px 2px;
+    padding: 3px;
+    background-color: #F2F5F7;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000000;
+    border: 1px solid #D0E4FD;
+}
+
+#sidebar p {
+    font-size: 18px;
+    background-color: #278554;
+    color: #FFFFFF;
+    border-bottom: 1px solid #C60029;
+    margin-bottom: 10px;
+}
+
+#footer {
+    overflow: auto;
+    margin: 5px 5px 0px 5px;
+    padding: 4px 0 0 0;
+    width: 98%;
+    font-size: 14px;
+    color: #CCCCCC;
+    border-top: 2px solid #F6D300;
+}
+
+#footer p {
+    font-size: 12px;
+    text-align: center;
+    padding: 2px 0 0 0;
+    color: #000000;
+
+}
+
+#footer a {
+    text-decoration: none;
+    text-align: center;
+    padding: 1px 0 0 0;
+    color: #095499;
+}
+
+.login_button {
+    width: 70px;
+    height: 25px;
+    border: 0px;
+    margin: 10px 0 0 0;
+}
+
+.menu {
+    padding: 0 0 0 0;
+    text-align: right;
+    float: right;
+}
+
+.menu li {
+    background: no-repeat top left;
+    width: 112px;
+    height: 30px;
+    text-align: center;
+    list-style-type: none;
+    float: left;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    font-family: SolaimanLipi, NikoshBAN, Nikosh, Georgia;
+    font-size: 12px;
+    display: block;
+    padding: 6px 0;
+}
+
+#sidebar ul, #frqForm ul {
+    width: 90%;
+    display: block;
+    margin: 10px 0 30px 0;
+    padding: 0 0 0 0;
+    overflow: auto;
+}
+
+#sidebar li, #frqForm li {
+    background-position: top left;
+    background-repeat: no-repeat;
+    width: 90%;
+    height: 30px;
+    text-align: left;
+    list-style-type: none;
+    float: left;
+}
+
+#sidebar li a, #frqForm li a {
+    text-decoration: underline;
+    color: #333333;
+    font-weight: normal;
+    font-family: SolaimanLipi, Nikosh, NikoshBAN;
+    font-size: 12px;
+    display: block;
+    padding-left: 18px;
+    background: url(../img/RedDot.gif) left no-repeat;
+}
+
+#frqForm li a {
+    text-decoration: underline;
+    color: #333333;
+    font-weight: normal;
+    font-family: SolaimanLipi, Nikosh, NikoshBAN;
+    font-size: 15px;
+    display: block;
+    padding-top: 6px;
+    padding-left: 18px;
+}
+
+#sidebar li a:hover, #frqForm li a:hover {
+    color: red;
+}
+
+.column div {
+    width: 209px;
+    margin: 0 auto;
+    padding: 1px 0 1px 0;
+}
+
+.column p {
+    padding: 15px 2px 0 2px
+}
+
+.column h3 {
+    font-family: SolaimanLipi, NikoshBAN, Nikosh, Georgia;
+    font-size: 14px;
+    border-bottom: 1px solid #006633;
+    padding-bottom: 3px;
+    margin-bottom: 3px;
+}
+
+.column p a, .list p a {
+    color: #0A53AD;
+    text-decoration: underline;
+    margin: 0 0 7px 0;
+    display: block;
+}
+
+.column span, .list span {
+    color: #737373;
+    display: block;
+    padding: 2px 0 0 0;
+}
+
+#bar {
+    margin: 0 20px 0 5px;
+    padding: 0 0 0 0;
+    width: 98%;
+    height: 25px;
+    background-color: #C9E5D7;
+    font-size: 14px;
+    color: #CCCCCC;
+    border-bottom: 2px solid #F6D300;
+}
+
+#navigation {
+    margin: 1px 20px 1px 5px;
+    width: 98%;
+    height: 30px;
+    background-color: #C9E5D7;
+    text-align: center;
+    font-size: 14px;
+    color: #CCCCCC;
+    border-bottom: 2px solid #F6D300;
+    font-weight: bold;
+    font-family: SolaimanLipi, NikoshBAN, Nikosh, Georgia;
+}
+
+#navigation ul {
+    display: block;
+    margin: 0 auto;
+    padding-top: 6px;
+    list-style-type: none;
+    width: 100%;
+}
+
+#navigation ul li {
+    display: inline;
+    padding: 3px 5px 0 12px;
+    margin: 0 2px 0 0px;
+    height: 20px;
+    background: #C9E5D7 url("../img/RedDot.gif") bottom left no-repeat;
+}
+
+#navigation ul li a {
+    display: inline;
+    color: #000000;
+    text-decoration: underline;
+}
+
+#navigation ul li a:hover {
+    text-decoration: underline;
+    color: red;
+    background-color: transparent;
+}
+
+#navigation ul li a.current {
+    color: #FFFFFF;
+    background-color: transparent;
+}
+
+#innerbar {
+    width: 82%;
+    overflow: auto;
+    margin: 20px 0 40px 110px;
+}
+
+#innerbar p {
+    width: 100%;
+    font-weight: bold;
+    font-size: 24px;
+    color: #278554;
+    text-decoration: none;
+    margin: 0;
+}
+
+#innerbar td {
+    padding: 6px;
+}
+
+.spacer {
+    width: 100px;
+}

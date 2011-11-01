@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/WEB-INF/jsp/layouts">
+
+    <decorator name="print" page="blank.jsp">
+        <pattern>*printHtml*</pattern>
+    </decorator>
+
+    <decorator name="formsgovbd" page="formsgovbd.jsp">
+        <pattern>/*</pattern>
+    </decorator>
+
+</decorators>

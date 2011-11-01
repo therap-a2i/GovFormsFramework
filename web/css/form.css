@@ -1,0 +1,108 @@
+a {
+    text-decoration: none;
+    color: #095499;
+}
+
+input.smallTxt {
+    width: 100px;
+}
+
+div.label {
+    float: left;
+    width: 300px;
+    padding: 2px;
+    margin: 2px;
+    text-align: right;
+}
+
+div.field {
+    float: left;
+    width: 400px;
+    padding: 2px;
+    margin: 2px;
+}
+
+div.clear {
+    width: 98%;
+    clear: both;
+    margin: 2px;
+    padding: 2px;
+    border-bottom: 1px dotted #ddd;
+}
+
+div.buttonDiv {
+    margin: 2px;
+    padding: 2px;
+    font-size: 10pt;
+    float: right;
+}
+
+div.buttonDivLeft {
+    width: 200px;
+    margin: 2px;
+    padding: 2px;
+    font-size: 10pt;
+    float: left;
+}
+
+.error {
+    color: #ff0000;
+    padding: 2px;
+    margin: 2px;
+}
+
+.section {
+    float: left;
+    border-bottom: 1px solid #ccc;
+    width: 98%;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+}
+
+.note {
+    border: 1px solid #ccc;
+    background: #eee;
+    width: 98%;
+    margin: 5px;
+    padding: 5px;
+    font-size: 10pt;
+}
+
+.help {
+    color: #555;
+    display: block;
+    font-size: 9pt;
+}
+
+.action {
+    background: #eee;
+    width: 98%;
+    margin: 5px;
+    padding: 5px;
+    font-size: 10pt;
+}
+
+#form1 {
+
+    padding: 5px;
+    width: 98%;
+}
+
+span.required {
+    color: #ff0000;
+    font-size: 10pt;
+}
+
+textarea {
+    width: 300px;
+    height: 120px;
+    font-family: SolaimanLipi;
+}
+
+.medium {
+    width: 200px;
+}
+
+img {
+    border: 0;
+}
