@@ -573,4 +573,16 @@ public class FormDaoImpl implements FormDao {
         jdbcTemplate.update("UPDATE form set  template_file = null, template_file_name = null WHERE form_id = ?",
                 formId);
     }
+
+    public int getFormEntryCount(Form frm, String status) {
+
+        String sql="SELECT COUNT(*) FROM " + frm.getTableName();
+        if(status != null) {
+            sql += " WHERE entry_status='"+status+"'";
+
+        }
+
+        return jdbcTemplate.queryForInt(sql);
+        
+    }
 }

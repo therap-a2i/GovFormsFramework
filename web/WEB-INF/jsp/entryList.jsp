@@ -88,6 +88,12 @@
     <input type="submit" value="<fmt:message key="search"/>"/>
 </form>
 
+<br>
+<fmt:message key="Total.Count"/>: ${totalCount}<br>
+<fmt:message key="Checked.Count"/>: ${checkedCount}<br>
+<fmt:message key="Unchecked.Count"/>: ${uncheckedCount}<br>
+<br>
+
 <table width="100%" style="border:1px solid #D3E5DA;" cellspacing="0">
     <tr>
         <c:url var="entryListUrl"

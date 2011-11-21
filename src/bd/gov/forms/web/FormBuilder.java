@@ -649,7 +649,8 @@ public class FormBuilder {
 
         Form formDb = formDao.getFormWithFields(formCmd.getFormId());
 
-        formDb.setEntryId(Long.toString(System.nanoTime()) + new Long(new Random().nextLong()));
+        //formDb.setEntryId(Long.toString(System.nanoTime()) + new Long(new Random().nextLong()));
+        formDb.setEntryId(Long.toString(System.nanoTime()));
         formDb.setEntryStatus("Submitted");
 
         if (formDb.getFields() != null && formDb.getFields().size() > 0) {
@@ -674,6 +675,7 @@ public class FormBuilder {
 
         model.put("doneMessage", "msg.form.submitted");
         model.put("doneMsgType", "success");
+        model.put("trackId", formDb.getEntryId());
 
         return "redirect:done.htm";
     }
@@ -681,10 +683,12 @@ public class FormBuilder {
     @RequestMapping(value = "/done", method = RequestMethod.GET)
     public String done(@RequestParam(value = "doneMessage", required = true) String message,
                        @RequestParam(value = "doneMsgType", required = true) String msgType,
+                       @RequestParam(value = "trackId", required = false) String trackId,
                        ModelMap model) throws Exception {
 
         model.put("doneMessage", message);
         model.put("doneMsgType", msgType);
+        model.put("trackId", trackId);
 
         return "done";
     }
@@ -724,6 +728,12 @@ public class FormBuilder {
         log.debug("sort order: {}", sortDir);
 
         Form form = formDao.getFormWithFields(formId);
+        int totalCount=formDao.getFormEntryCount(form,null);
+        int checkedCount=formDao.getFormEntryCount(form,"Checked");
+        int uncheckedCount=totalCount-checkedCount;
+        model.put("totalCount", totalCount);
+        model.put("checkedCount", checkedCount);
+        model.put("uncheckedCount", uncheckedCount);
 
         List list = formDao.getEntryList(form, page, colName, colVal, sortCol, sortDir, true);
 

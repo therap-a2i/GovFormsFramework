@@ -71,4 +71,6 @@ public interface FormDao {
 
     public List getPublicForms();
 
+    public int getFormEntryCount(Form frm, String status);
+
 }

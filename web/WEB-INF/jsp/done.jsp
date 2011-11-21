@@ -38,5 +38,9 @@
 
 <fmt:message key="${doneMessage}"/>
 
+<c:if test="${not empty trackId}">
+    <br><fmt:message key="label.tracking.id"/> ${trackId}    
+</c:if>
+
 </body>
 </html>
