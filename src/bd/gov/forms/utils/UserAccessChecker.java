@@ -27,4 +27,8 @@ public class UserAccessChecker {
         return Role.checkRole(Role.ROLE_USER, (User) request.getSession().getAttribute("user"));
     }
     
+     public static String check1(HttpServletRequest request) {
+        return (User) request.getSession().getAttribute("user");
+    }
+    
 }
